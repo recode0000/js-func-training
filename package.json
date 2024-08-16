@@ -1,0 +1,25 @@
+{
+  "name": "study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "npm-watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "npm-watch": "^0.13.0"
+  },
+  "watch": {
+    "start": {
+      "patterns": [
+        "."
+      ],
+      "extensions": "js",
+      "quiet": false
+    }
+  }
+}
