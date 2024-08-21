@@ -1,15 +1,46 @@
-let data = [];
-// jsonplaceholderのAPIを使ってデータを取得
-data = fetch("https://jsonplaceholder.typicode.com/todos").then((response) =>
-  reresponse.json()
-);
+async function getSampleData() {
+  try {
+    // TODOsデータを取得
+    const todoResponse = await fetch(
+      "https://jsonplaceholder.typicode.com/todos"
+    );
+    const todoData = await todoResponse.json();
+    console.log("TODOsデータ:", todoData);
 
-// Arrayオブジェクトの主なメンバー
-console.log("配列のサイズ", data.length);
-// console.log("オブジェクトが配列かを真偽値で返すメソッド", Array.isArray(data));
-// console.log("配列の要素を表す文字列を返すメソッド", fruits.toString());
-// console.log(
-//   "指定した要素に合致した最初のようのキーを取得するメソッド",
-//   data.indexOf({ id: 3, name: "Charlie", age: 42 })
-// );
-// console.log(fruits.indexOf("banana"));
+    // ユーザーデータを取得
+    const userResponse = await fetch(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    const userData = await userResponse.json();
+    console.log("ユーザーデータ:", userData);
+
+    // 投稿データを取得
+    const postResponse = await fetch(
+      "https://jsonplaceholder.typicode.com/posts"
+    );
+    const postData = await postResponse.json();
+    console.log("投稿データ:", postData);
+
+    return {
+      todos: todoData,
+      users: userData,
+      posts: postData,
+    };
+  } catch (error) {
+    console.error("データ取得エラー:", error);
+    throw error;
+  }
+}
+
+async function main() {
+  const data = await getSampleData();
+
+  // TODOsデータの件数を表示
+  console.log(data.todos.length);
+
+  // ユーザーデータの件数を絞り込む
+  const filteredUsers = data.users.filter((user) => user.id < 5);
+  console.log(filteredUsers);
+}
+
+main();
