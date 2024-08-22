@@ -35,10 +35,35 @@ async function getSampleData() {
 async function main() {
   const data = await getSampleData();
 
-  // TODOsデータの件数を表示
+  //【1.基本】
+
+  // データの件数を表示
   console.log(data.todos.length);
 
-  // ユーザーデータの件数を絞り込む
+  // 【2.加工】
+
+  // 【3.追加/削除】
+
+  // 【4.並べ替え】
+
+  // 逆順に並べ替え（reverse）
+  const reversedTodos = data.todos.reverse();
+  console.log(reversedTodos); // idの降順で並べ替えになっている
+
+  // idの昇順で並べ替え（sort）
+  const sortedTodos = data.todos.sort((a, b) => a.id - b.id);
+  console.log("idの昇順で並べ替え", sortedTodos);
+
+  //【5.コールバック関数】
+
+  // 配列内の要素を順に処理（forEach）
+  const forEeachedTodos = data.todos.forEach((todo) => {
+    todo.id = "【コールバック関数処理後】" + todo.id;
+  });
+  console.log("todoのidを変更", forEeachedTodos); // undefined forEachは返り値がない
+  console.log(data.todos); // 元の配列のidが変更されている
+
+  // 絞り込み（filter）
   const filteredUsers = data.users.filter((user) => user.id < 5);
   console.log(filteredUsers);
 }
