@@ -43,15 +43,24 @@ async function main() {
   // 【2.加工】
 
   // 【3.追加/削除】
+  // pop, push, shift, unshift は破壊的メソッド
+  data.posts.pop(); // 末尾の要素を削除
+  console.log("末尾削除後のposts", data.posts);
+  data.posts.push({ useId: 100, title: "pushで末尾追加" }); // 末尾に要素を追加
+  console.log("末尾追加後のposts", data.posts);
+  data.posts.shift(); // 先頭の要素を削除
+  console.log("先頭削除後のposts", data.posts);
+  data.posts.unshift({ useId: 0, title: "unshiftで先頭追加" }); // 先頭に要素を追加
+  console.log("先頭追加後のposts", data.posts);
 
   // 【4.並べ替え】
   // 逆順に並べ替え（reverse）
   const reversedTodos = data.todos.reverse();
-  console.log("idの降順で並べ替え", reversedTodos);
+  // console.log("idの降順で並べ替え", reversedTodos);
 
   // idの昇順で並べ替え（sort）
   const sortedTodos = data.todos.sort((a, b) => a.id - b.id);
-  console.log("idの昇順で並べ替え", sortedTodos);
+  // console.log("idの昇順で並べ替え", sortedTodos);
 
   //【5.コールバック関数】
 
@@ -59,12 +68,12 @@ async function main() {
   const forEeachedTodos = data.todos.forEach((todo) => {
     todo.id = "【コールバック関数処理後】" + todo.id;
   });
-  console.log("todoのidを変更", forEeachedTodos); // undefined forEachは返り値がない
-  console.log(data.todos); // 元の配列のidが変更されている
+  // console.log("todoのidを変更", forEeachedTodos); // undefined forEachは返り値がない
+  // console.log(data.todos); // 元の配列のidが変更されている
 
   // 絞り込み（filter）
   const filteredUsers = data.users.filter((user) => user.id < 5);
-  console.log(filteredUsers);
+  // console.log(filteredUsers);
 }
 
 main();
