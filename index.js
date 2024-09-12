@@ -45,10 +45,9 @@ async function main() {
   // 【3.追加/削除】
 
   // 【4.並べ替え】
-
   // 逆順に並べ替え（reverse）
   const reversedTodos = data.todos.reverse();
-  console.log(reversedTodos); // idの降順で並べ替えになっている
+  console.log("idの降順で並べ替え", reversedTodos);
 
   // idの昇順で並べ替え（sort）
   const sortedTodos = data.todos.sort((a, b) => a.id - b.id);
