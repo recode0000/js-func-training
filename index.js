@@ -38,20 +38,28 @@ async function main() {
   //【1.基本】
 
   // データの件数を表示
-  console.log(data.todos.length);
+  console.log("データの件数", data.todos.length);
+  // 指定したオブジェクトが配列かどうかを判定
+  console.log("配列かどうか判定", Array.isArray(data.todos));
+  // 文字列へ変換
+  console.log("文字列へ変換", data.todos.toString());
+  // 指定した要素に合致した最初のインデックスを取得
+  console.log("インデックス取得", data.todos.indexOf(1)); // -1 は見つからなかった場合
+  // 指定した要素に合致した最後のインデックスを取得
+  console.log("インデックス取得", data.todos.lastIndexOf(1)); // -1 は見つからなかった場合
 
   // 【2.加工】
 
   // 【3.追加/削除】
   // pop, push, shift, unshift は破壊的メソッド
   data.posts.pop(); // 末尾の要素を削除
-  console.log("末尾削除後のposts", data.posts);
+  // console.log("末尾削除後のposts", data.posts);
   data.posts.push({ useId: 100, title: "pushで末尾追加" }); // 末尾に要素を追加
-  console.log("末尾追加後のposts", data.posts);
+  // console.log("末尾追加後のposts", data.posts);
   data.posts.shift(); // 先頭の要素を削除
-  console.log("先頭削除後のposts", data.posts);
+  // console.log("先頭削除後のposts", data.posts);
   data.posts.unshift({ useId: 0, title: "unshiftで先頭追加" }); // 先頭に要素を追加
-  console.log("先頭追加後のposts", data.posts);
+  // console.log("先頭追加後のposts", data.posts);
 
   // 【4.並べ替え】
   // 逆順に並べ替え（reverse）
