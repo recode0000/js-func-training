@@ -47,6 +47,12 @@ async function main() {
   console.log("インデックス取得", data.todos.indexOf(1)); // -1 は見つからなかった場合
   // 指定した要素に合致した最後のインデックスを取得
   console.log("インデックス取得", data.todos.lastIndexOf(1)); // -1 は見つからなかった場合
+  // 全てのキー・値のペアを取得
+  console.log("全てのキー・値のペア", Object.entries(data.todos));
+  // キーのみを取得
+  console.log("キーのみを取得", Object.keys(data.todos));
+  // 値のみを取得
+  console.log("値のみを取得", Object.values(data.todos));
 
   // 【2.加工】
 
