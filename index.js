@@ -36,7 +36,6 @@ async function main() {
   const data = await getSampleData();
 
   //【1.基本】
-
   // データの件数を表示
   console.log("データの件数", data.todos.length);
   // 指定したオブジェクトが配列かどうかを判定
