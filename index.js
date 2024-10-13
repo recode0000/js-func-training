@@ -67,22 +67,59 @@ async function main() {
   // console.log("先頭追加後のposts", data.posts);
 
   // 【4.並べ替え】
-  // 逆順に並べ替え（reverse）
-  const reversedTodos = data.todos.reverse();
+  const reversedTodos = data.todos.reverse(); // 逆順に並べ替え（reverse）
   // console.log("idの降順で並べ替え", reversedTodos);
-
-  // idの昇順で並べ替え（sort）
-  const sortedTodos = data.todos.sort((a, b) => a.id - b.id);
+  const sortedTodos = data.todos.sort((a, b) => a.id - b.id); // idの昇順で並べ替え（sort）
   // console.log("idの昇順で並べ替え", sortedTodos);
 
   //【5.コールバック関数】
-
   // 配列内の要素を順に処理（forEach）
   const forEeachedTodos = data.todos.forEach((todo) => {
     todo.id = "【コールバック関数処理後】" + todo.id;
   });
   // console.log("todoのidを変更", forEeachedTodos); // undefined forEachは返り値がない
   // console.log(data.todos); // 元の配列のidが変更されている
+
+  /// 配列の要素を関数で順に加工
+  const mappedTodos = data.todos.map((todo) => {
+    return {
+      ...todo,
+      title: "【コールバック関数処理後】" + todo.title,
+    };
+  });
+  // console.log("titleを変更", mappedTodos);
+
+  // すべての配列内の要素が条件に合致するか判定
+  const everyTodos = data.todos.every((todo) => todo.id < 1);
+  // console.log("すべてのidが100未満か", everyTodos); // false 1つでも条件に合致しないものがある
+
+  // いずれかの配列内の要素が条件に合致するか判定
+  const someTodos = data.todos.some((todo) => (todo.id = 1));
+  // console.log(someTodos); // true 1つでも条件に合致するものがある
+
+  // 条件に合致した要素で配列を生成
+  const filteredTodos = data.todos.filter((todo) => todo.id < 5);
+  console.log(filteredTodos);
+
+  // 関数がはじめてtrueを返した要素を取得
+  const findTodos = data.todos.find((todo) => todo.id === 1);
+  // console.log(findTodos);
+
+  // 関数がはじめてtrueを返した要素のインデックスを取得
+  const findIndexTodos = data.todos.findIndex((todo) => todo.id === 1);
+  // console.log(findIndexTodos);
+
+  // 隣同士の２つの要素を左から右へ関数で処理して単一の値にする
+  const reducedTodos = data.todos.reduce((acc, todo) => {
+    return acc + todo.id;
+  }, 0);
+  // console.log(reducedTodos);
+
+  // 隣同士の２つの要素を右から左へ関数で処理して単一の値にする
+  const reducedRightTodos = data.todos.reduceRight((acc, todo) => {
+    return acc + todo.id;
+  }, 0);
+  // console.log(reducedRightTodos);
 
   // 絞り込み（filter）
   const filteredUsers = data.users.filter((user) => user.id < 5);
