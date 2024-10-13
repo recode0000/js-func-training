@@ -36,27 +36,24 @@ async function main() {
   const data = await getSampleData();
 
   //【1.基本】
-  // データの件数を表示
-  // console.log("データの件数", data.todos.length);
-  // 指定したオブジェクトが配列かどうかを判定
-  // console.log("配列かどうか判定", Array.isArray(data.todos));
-  // 文字列へ変換
-  // console.log("文字列へ変換", data.todos.toString());
-  // 指定した要素に合致した最初のインデックスを取得
-  // console.log("インデックス取得", data.todos.indexOf(1)); // -1 は見つからなかった場合
-  // 指定した要素に合致した最後のインデックスを取得
-  // console.log("インデックス取得", data.todos.lastIndexOf(1)); // -1 は見つからなかった場合
-  // 全てのキー・値のペアを取得
-  // console.log("全てのキー・値のペア", Object.entries(data.todos));
-  // キーのみを取得
-  // console.log("キーのみを取得", Object.keys(data.todos));
-  // 値のみを取得
-  // console.log("値のみを取得", Object.values(data.todos));
+  // console.log("データの件数", data.todos.length); // データの件数を表示
+  // console.log("配列かどうか判定", Array.isArray(data.todos)); // 指定したオブジェクトが配列かどうかを判定
+  // console.log("文字列へ変換", data.todos.toString()); // 文字列へ変換
+  // console.log("インデックス取得", data.todos.indexOf(1)); // 指定した要素に合致した最初のインデックスを取得 -1 は見つからなかった場合
+  // console.log("インデックス取得", data.todos.lastIndexOf(1)); // 指定した要素に合致した最後のインデックスを取得 -1 は見つからなかった場合
+  // console.log("全てのキー・値のペア", Object.entries(data.todos)); // 全てのキー・値のペアを取得
+  // console.log("キーのみを取得", Object.keys(data.todos)); // キーのみを取得
+  // console.log("値のみを取得", Object.values(data.todos)); // 値のみを取得
 
   // 【2.加工】
-  // 指定配列を現在の配列に連結
-  const concatTodos = data.todos.concat(data.users);
-  console.log("連結", concatTodos);
+  const concatTodos = data.todos.concat(data.users); // 指定配列を現在の配列に連結
+  // console.log("連結", concatTodos);
+  const joinTodos = data.todos.map((todo) => todo.title).join(" / "); // 配列内の要素を区切り文字delで連結
+  // console.log("区切り文字で連結", joinTodos);
+  const sliceTodos = data.todos.slice(1, 3); // start + 1 ~ end 番目の要素の抜き出し 1 ~ 3 番目の要素を抜き出し
+  // console.log("抜き出し", sliceTodos);
+  const spliceTodos = data.todos.splice(1, 3); // start + 1 ~ end 番目の要素を削除 1 ~ 3 番目の要素を削除
+  // console.log("削除", spliceTodos);
 
   // 【3.追加/削除】
   // pop, push, shift, unshift は破壊的メソッド
