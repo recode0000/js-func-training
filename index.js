@@ -5,7 +5,6 @@ async function getSampleData() {
       "https://jsonplaceholder.typicode.com/todos"
     );
     const todoData = await todoResponse.json();
-    console.log("TODOsデータ:", todoData);
 
     // ユーザーデータを取得
     const userResponse = await fetch(
@@ -21,10 +20,11 @@ async function getSampleData() {
     const postData = await postResponse.json();
     console.log("投稿データ:", postData);
 
+    // 20件ずつのデータだけ返す
     return {
-      todos: todoData,
-      users: userData,
-      posts: postData,
+      todos: todoData.slice(0, 20),
+      users: userData.slice(0, 20),
+      posts: postData.slice(0, 20),
     };
   } catch (error) {
     console.error("データ取得エラー:", error);
@@ -37,23 +37,26 @@ async function main() {
 
   //【1.基本】
   // データの件数を表示
-  console.log("データの件数", data.todos.length);
+  // console.log("データの件数", data.todos.length);
   // 指定したオブジェクトが配列かどうかを判定
-  console.log("配列かどうか判定", Array.isArray(data.todos));
+  // console.log("配列かどうか判定", Array.isArray(data.todos));
   // 文字列へ変換
-  console.log("文字列へ変換", data.todos.toString());
+  // console.log("文字列へ変換", data.todos.toString());
   // 指定した要素に合致した最初のインデックスを取得
-  console.log("インデックス取得", data.todos.indexOf(1)); // -1 は見つからなかった場合
+  // console.log("インデックス取得", data.todos.indexOf(1)); // -1 は見つからなかった場合
   // 指定した要素に合致した最後のインデックスを取得
-  console.log("インデックス取得", data.todos.lastIndexOf(1)); // -1 は見つからなかった場合
+  // console.log("インデックス取得", data.todos.lastIndexOf(1)); // -1 は見つからなかった場合
   // 全てのキー・値のペアを取得
-  console.log("全てのキー・値のペア", Object.entries(data.todos));
+  // console.log("全てのキー・値のペア", Object.entries(data.todos));
   // キーのみを取得
-  console.log("キーのみを取得", Object.keys(data.todos));
+  // console.log("キーのみを取得", Object.keys(data.todos));
   // 値のみを取得
-  console.log("値のみを取得", Object.values(data.todos));
+  // console.log("値のみを取得", Object.values(data.todos));
 
   // 【2.加工】
+  // 指定配列を現在の配列に連結
+  const concatTodos = data.todos.concat(data.users);
+  console.log("連結", concatTodos);
 
   // 【3.追加/削除】
   // pop, push, shift, unshift は破壊的メソッド
