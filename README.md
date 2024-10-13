@@ -7,10 +7,17 @@
 
 ## MEMO
 
-- 破壊的メソッド（対象となるオブジェクト型の元の配列の値を変えてしまうメソッド）
-  - pop()
-  - push()
-  - shift()
-  - unshift()
-  - reverse()
-  - sort()
+- Array オブジェクト
+  - 表現
+    - 配列リテラル
+    - インデックスで管理、値の重複 OK
+  - 破壊的メソッド
+    - 実行によって、そのものの状態（元の配列など）を変更するメソッド
+      - 例
+        - pop
+        - push
+        - shift
+        - unshift
+        - reverse
+        - sort
+        - splice
