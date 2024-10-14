@@ -30,7 +30,7 @@ async function getSampleData() {
   }
 }
 
-async function main() {
+async function checkArrayObject() {
   const data = await getSampleData();
 
   //【1.基本】
@@ -124,4 +124,4 @@ async function main() {
   // console.log(filteredUsers);
 }
 
-main();
+checkArrayObject();
