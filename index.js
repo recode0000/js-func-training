@@ -11,14 +11,12 @@ async function getSampleData() {
       "https://jsonplaceholder.typicode.com/users"
     );
     const userData = await userResponse.json();
-    console.log("ユーザーデータ:", userData);
 
     // 投稿データを取得
     const postResponse = await fetch(
       "https://jsonplaceholder.typicode.com/posts"
     );
     const postData = await postResponse.json();
-    console.log("投稿データ:", postData);
 
     // 20件ずつのデータだけ返す
     return {
