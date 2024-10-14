@@ -1,34 +1,3 @@
-async function getSampleData() {
-  try {
-    // TODOsデータを取得
-    const todoResponse = await fetch(
-      "https://jsonplaceholder.typicode.com/todos"
-    );
-    const todoData = await todoResponse.json();
-
-    // ユーザーデータを取得
-    const userResponse = await fetch(
-      "https://jsonplaceholder.typicode.com/users"
-    );
-    const userData = await userResponse.json();
-
-    // 投稿データを取得
-    const postResponse = await fetch(
-      "https://jsonplaceholder.typicode.com/posts"
-    );
-    const postData = await postResponse.json();
-
-    return {
-      todoData,
-      userData,
-      postData,
-    };
-  } catch (error) {
-    console.error("データ取得エラー:", error);
-    throw error;
-  }
-}
-
 async function checkMapObject() {
   const data = await getSampleData();
 
